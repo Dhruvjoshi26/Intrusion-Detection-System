@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intrusion Detection</title>
+</head>
+<body>
+    <h1>Intrusion Detection System</h1>
+    <button onclick="startDetection()">Start Detection</button>
+
+    <script>
+        function startDetection() {
+            fetch("/start")
+                .then(response => {
+                    if (response.ok) {
+                        alert("Detection Started!");
+                    } else {
+                        alert("Error Starting Detection!");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("Failed to connect to the server.");
+                });
+        }
+    </script>
+</body>
+</html>
